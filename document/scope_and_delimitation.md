@@ -1,0 +1,12 @@
+1.4	Scope and Delimitations
+Given that the targeting system is primarily divided into two categories, namely geographic targeting and household targeting, the study will only concentrate on household targeting, which identifies low-income household units that are eligible for the government's poverty alleviation program that has been implemented in the Philippines and focuses on human capital development by providing cash grants to eligible households.
+
+ 	The study will also test the model's capacity to identify households who are eligible for the Pantawid Pamilyang Pilipino Program (4Ps) using the Listahanan database's list of poor and non-poor household units from 2013 to 2016.
+
+The Listahanan database's list of households had already undergone the Proxy Mean Test (PMT) estimation using the Household Assessment Form (HAF) and had already compared the household's predicted income to the provincial poverty threshold to determine whether the household is poor, equal, or non-poor. The research study will use the results as well to test the model and predict results using the Support Vector Machine algorithm.
+
+The research will also use data gathered by the Department of Social Welfare and Development's MIMAROPA Region IV-B Division Office (DSWD). The government's social protection program is made up of eleven (11) developmental programs and services provided by DSWD, namely: Programs and Services for Trafficked Persons; Disaster Response Services (CSAP), Social Pension, Supplementary Feeding Program (SFP), AICS-Educational Assistance, MIMAROPA Youth Center (MYC), Youth (Community-Based Services), Pantawid Pamilyang Pilipino Program (4Ps), Sustainable Livelihood Program (SLP), KALAHI-CIDSS, NGA, and LGU-initiated Developmental Programs and Services. But only the Pantawid Pamilyang Pilipino Program (4Ps) of the government's conditional cash grants would be the main subject of the study.
+
+The beneficiaries of the Pantawid Pamilyang Pilipino Program (4Ps) would be the primary focus of the research's testing data for its model. The study's conclusions will be evaluated based on how accurately the classification was obtained.
+
+The development measures will also focus on the agreement established when the memorandum of understanding was formed, ensuring that all data is properly used for the reason for which it was gathered.
