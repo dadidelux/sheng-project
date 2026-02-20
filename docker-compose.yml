@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # ClickHouse Database
+  clickhouse:
+    image: clickhouse/clickhouse-server:23-alpine
+    container_name: dswd_clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - ./database/init:/docker-entrypoint-initdb.d
+    environment:
+      - CLICKHOUSE_DB=poverty_db
+      - CLICKHOUSE_USER=admin
+      - CLICKHOUSE_PASSWORD=admin123
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+    networks:
+      - dswd_network
+    healthcheck:
+      test: ["CMD", "clickhouse-client", "--query", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: dswd_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data:/data
+      - ./backend/models:/app/models
+    environment:
+      - CLICKHOUSE_HOST=clickhouse
+      - CLICKHOUSE_PORT=8123
+      - CLICKHOUSE_USER=admin
+      - CLICKHOUSE_PASSWORD=admin123
+      - CLICKHOUSE_DB=poverty_db
+      - API_CORS_ORIGINS=http://localhost:3001
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    networks:
+      - dswd_network
+
+  # React Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: dswd_frontend
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000/api/v1
+    depends_on:
+      - backend
+    networks:
+      - dswd_network
+
+volumes:
+  clickhouse_data:
+
+networks:
+  dswd_network:
+    driver: bridge
