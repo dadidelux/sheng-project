@@ -1,11 +1,31 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { dataViewerApi } from '../services/api';
 import {
-  Box, Typography, Tabs, Tab, Paper, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, TablePagination, Button,
-  FormControl, InputLabel, Select, MenuItem, TextField, Chip,
-  OutlinedInput, SelectChangeEvent, CircularProgress, Alert, Stack
+  Box,
+  Typography,
+  Tabs,
+  Tab,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TablePagination,
+  Button,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  TextField,
+  Chip,
+  OutlinedInput,
+  SelectChangeEvent,
+  CircularProgress,
+  Alert,
+  Stack,
 } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import FilterListIcon from '@mui/icons-material/FilterList';
@@ -180,15 +200,39 @@ export default function DataViewerPage() {
 
   return (
     <Box>
-      <Typography variant="h4" gutterBottom>
-        Data Viewer
-      </Typography>
-      <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-        View and export raw household and prediction data
-      </Typography>
+      <Box sx={{ mb: 4, borderLeft: 4, borderColor: 'secondary.main', pl: 3, py: 1 }}>
+        <Typography variant="h3" gutterBottom sx={{ mb: 0.5 }}>
+          Data Viewer
+        </Typography>
+        <Typography variant="subtitle1" color="text.secondary">
+          View and export raw household and prediction data
+        </Typography>
+      </Box>
 
-      <Paper sx={{ mt: 3 }}>
-        <Tabs value={tabValue} onChange={handleTabChange}>
+      <Paper
+        sx={{
+          mt: 1,
+          borderRadius: 3,
+          border: '1px solid',
+          borderColor: 'divider',
+          boxShadow: '0 6px 28px rgba(0, 51, 160, 0.08)',
+          overflow: 'hidden',
+        }}
+      >
+        <Tabs
+          value={tabValue}
+          onChange={handleTabChange}
+          sx={{
+            borderBottom: '1px solid',
+            borderColor: 'divider',
+            bgcolor: 'rgba(240,242,249,0.6)',
+            '& .MuiTab-root': {
+              fontWeight: 700,
+              letterSpacing: 0.8,
+              fontSize: 13,
+            },
+          }}
+        >
           <Tab label="Poverty Data" />
           <Tab label="Predictions" />
         </Tabs>
@@ -294,7 +338,16 @@ export default function DataViewerPage() {
                     <TableHead>
                       <TableRow>
                         {povertySelectedCols.map((col) => (
-                          <TableCell key={col} sx={{ fontWeight: 'bold', bgcolor: 'grey.100' }}>
+                          <TableCell
+                            key={col}
+                            sx={{
+                              fontWeight: 700,
+                              bgcolor: '#F0F2F9',
+                              color: 'primary.main',
+                              textTransform: 'uppercase',
+                              fontSize: 12,
+                            }}
+                          >
                             {col}
                           </TableCell>
                         ))}
@@ -302,7 +355,14 @@ export default function DataViewerPage() {
                     </TableHead>
                     <TableBody>
                       {povertyData.data.map((row: any, idx: number) => (
-                        <TableRow key={idx} hover>
+                        <TableRow
+                          key={idx}
+                          hover
+                          sx={{
+                            '&:nth-of-type(even)': { bgcolor: 'rgba(240,242,249,0.6)' },
+                            '&:hover': { bgcolor: 'rgba(0,51,160,0.04)' },
+                          }}
+                        >
                           {povertySelectedCols.map((col) => (
                             <TableCell key={col}>
                               {row[col] !== null && row[col] !== undefined ? String(row[col]) : '-'}
@@ -423,7 +483,16 @@ export default function DataViewerPage() {
                     <TableHead>
                       <TableRow>
                         {predictionsSelectedCols.map((col) => (
-                          <TableCell key={col} sx={{ fontWeight: 'bold', bgcolor: 'grey.100' }}>
+                          <TableCell
+                            key={col}
+                            sx={{
+                              fontWeight: 700,
+                              bgcolor: '#F0F2F9',
+                              color: 'primary.main',
+                              textTransform: 'uppercase',
+                              fontSize: 12,
+                            }}
+                          >
                             {col}
                           </TableCell>
                         ))}
@@ -431,7 +500,14 @@ export default function DataViewerPage() {
                     </TableHead>
                     <TableBody>
                       {predictionsData.data.map((row: any, idx: number) => (
-                        <TableRow key={idx} hover>
+                        <TableRow
+                          key={idx}
+                          hover
+                          sx={{
+                            '&:nth-of-type(even)': { bgcolor: 'rgba(240,242,249,0.6)' },
+                            '&:hover': { bgcolor: 'rgba(0,51,160,0.04)' },
+                          }}
+                        >
                           {predictionsSelectedCols.map((col) => (
                             <TableCell key={col}>
                               {row[col] !== null && row[col] !== undefined ? String(row[col]) : '-'}
