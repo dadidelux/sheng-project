@@ -27,22 +27,23 @@ export default function Layout() {
           '& .MuiDrawer-paper': {
             width: 260,
             boxSizing: 'border-box',
+            borderRadius: 0,
             borderRight: '1px solid',
-            borderColor: 'divider',
-            bgcolor: '#F0F2F9',
+            borderColor: 'rgba(255,255,255,0.12)',
+            bgcolor: 'primary.main',
             pt: 2,
           },
         }}
       >
-        <Toolbar sx={{ px: 3, pb: 2, borderBottom: '1px solid', borderColor: 'divider' }}>
+        <Toolbar sx={{ px: 3, pb: 2, borderBottom: '1px solid', borderColor: 'rgba(255,255,255,0.12)' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
             <Box
               sx={{
                 width: 32,
                 height: 32,
                 borderRadius: '50%',
-                bgcolor: 'primary.main',
-                color: 'primary.contrastText',
+                bgcolor: 'rgba(255,255,255,0.2)',
+                color: 'white',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -53,10 +54,10 @@ export default function Layout() {
               D
             </Box>
             <Box>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, lineHeight: 1 }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: 700, lineHeight: 1, color: 'white' }}>
                 DSWD
               </Typography>
-              <Typography variant="subtitle2" color="text.secondary" sx={{ lineHeight: 1.2 }}>
+              <Typography variant="subtitle2" sx={{ lineHeight: 1.2, color: 'rgba(255,255,255,0.8)' }}>
                 MIMAROPA
               </Typography>
             </Box>
@@ -76,28 +77,29 @@ export default function Layout() {
                     borderRadius: 2,
                     px: 2,
                     py: 1,
+                    color: 'white',
                     '&.Mui-selected': {
-                      bgcolor: 'primary.main',
-                      color: 'primary.contrastText',
+                      bgcolor: 'rgba(255,255,255,0.15)',
+                      color: 'white',
                       '& .MuiListItemText-primary': {
                         fontWeight: 600,
                       },
                       '& .MuiListItemIcon-root': {
-                        color: 'primary.contrastText',
+                        color: 'white',
                       },
                     },
                     '&.Mui-selected:hover': {
-                      bgcolor: 'primary.main',
+                      bgcolor: 'rgba(255,255,255,0.2)',
                     },
                     '&:hover': {
-                      bgcolor: selected ? 'primary.main' : 'action.hover',
+                      bgcolor: selected ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.08)',
                     },
                   }}
                 >
                   <ListItemIcon
                     sx={{
                       minWidth: 32,
-                      color: selected ? 'primary.contrastText' : 'text.primary',
+                      color: 'white',
                     }}
                   >
                     {item.icon}

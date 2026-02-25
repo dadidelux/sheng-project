@@ -8,15 +8,30 @@ export default function HomePage() {
   return (
     <div>
       <Box sx={{ mb: 4, borderLeft: 4, borderColor: 'secondary.main', pl: 3, py: 1 }}>
-        <Typography variant="h3" gutterBottom sx={{ mb: 0.5 }}>
+        <Typography
+          component="h1"
+          sx={{
+            fontSize: { xs: 30, md: 36 },
+            fontWeight: 700,
+            color: 'primary.main',
+            letterSpacing: '-0.02em',
+            mb: 0.5,
+          }}
+        >
           DSWD Poverty Analysis Dashboard
         </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
+        <Typography
+          component="p"
+          sx={{
+            fontSize: 18,
+            color: 'text.secondary',
+          }}
+        >
           Department of Social Welfare and Development - MIMAROPA Region
         </Typography>
       </Box>
 
-      <Grid container spacing={6} sx={{ mt: 0 }}>
+      <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Card
             sx={{
