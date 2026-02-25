@@ -48,10 +48,25 @@ export default function AnalyticsPage() {
   return (
     <Box>
       <Box sx={{ mb: 4, borderLeft: 4, borderColor: 'secondary.main', pl: 3, py: 1 }}>
-        <Typography variant="h3" gutterBottom sx={{ mb: 0.5 }}>
+        <Typography
+          component="h1"
+          sx={{
+            fontSize: { xs: 30, md: 36 },
+            fontWeight: 700,
+            color: 'primary.main',
+            letterSpacing: '-0.02em',
+            mb: 0.5,
+          }}
+        >
           4Ps Targeting Analysis
         </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
+        <Typography
+          component="p"
+          sx={{
+            fontSize: 18,
+            color: 'text.secondary',
+          }}
+        >
           Analyze program effectiveness across MIMAROPA provinces
         </Typography>
       </Box>

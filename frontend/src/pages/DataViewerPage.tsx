@@ -201,10 +201,25 @@ export default function DataViewerPage() {
   return (
     <Box>
       <Box sx={{ mb: 4, borderLeft: 4, borderColor: 'secondary.main', pl: 3, py: 1 }}>
-        <Typography variant="h3" gutterBottom sx={{ mb: 0.5 }}>
+        <Typography
+          component="h1"
+          sx={{
+            fontSize: { xs: 30, md: 36 },
+            fontWeight: 700,
+            color: 'primary.main',
+            letterSpacing: '-0.02em',
+            mb: 0.5,
+          }}
+        >
           Data Viewer
         </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
+        <Typography
+          component="p"
+          sx={{
+            fontSize: 18,
+            color: 'text.secondary',
+          }}
+        >
           View and export raw household and prediction data
         </Typography>
       </Box>
