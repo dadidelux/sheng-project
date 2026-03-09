@@ -40,11 +40,11 @@ env/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Data files - exclude large files that exceed GitHub limits
+# Data files - stored outside git (use scripts/export_db.sh / scripts/restore_db.sh)
+data/
 *.csv
 *.xlsx
-*.json
-data/
+
 
 # Output files
 *.log
